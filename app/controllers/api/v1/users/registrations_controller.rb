@@ -1,7 +1,7 @@
 module Api
   module V1
     module Users
-      # Manages User Registeration
+      # Manages {User} information related to {devise-api}
       class RegistrationsController < ApplicationController
 
         # Creates new User
@@ -11,23 +11,31 @@ module Api
             render json: { 
               status: 201,
               user: user,
-              message: "User registered successfully"
+              message: 'User registered successfully'
             }
           else
             render status: 400,
-              json: { message: user.errors.full_messages }
+              json: { 
+                message: user.errors.full_messages 
+              }
           end
         end
         
         # Verifies for the user 
         def verify
-          user = User.find_by params[:email]
-          if user && user.valid_password?(params[:password])
+          user = User.find_by_email user_params[:email]
+          if user&.valid_password?(user_params[:password])
             render status: 200,
-                json: { message: "True" }
+              json: { 
+                message: 'True, user was found',
+                user: user
+              }
           else
             render status: 400,
-              json: { message: "False"}
+              json: { 
+                status: 404,
+                message: 'False, something went wrong or user not found',
+              }
           end
         end
 
