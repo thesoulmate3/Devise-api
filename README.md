@@ -1,24 +1,14 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Before starting please do add database.yml file
+#### User's registeration
+##### Signup => http://127.0.0.1:3000/api/v1/signup
+```JSON
+{
+    "user":{
+        "email": "rahul@demo.com",
+        "password": "rahul demo",
+        "name": "Rahul R Gupta",
+        "phone": "8888888888"
+    }
+}
+```
+[Postman Collection link ](https://www.getpostman.com/collections/6c36508b5226369fd25d)
