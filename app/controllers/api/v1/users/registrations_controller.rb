@@ -14,9 +14,9 @@ module Api
             }
           else
             render status: 400,
-                   json: {
-                     message: user.errors.full_messages
-                   }
+              json: {
+                message: user.errors.full_messages
+            }
           end
         end
 
@@ -25,16 +25,16 @@ module Api
           user = User.find_by_email user_params[:email]
           if user&.valid_password?(user_params[:password])
             render status: 200,
-                   json: {
-                     message: 'True, user was found',
-                     user: user
-                   }
+              json: {
+                message: 'True, user was found',
+                user: user
+            }
           else
             render status: 400,
-                   json: {
-                     status: 404,
-                     message: 'False, something went wrong or user not found'
-                   }
+              json: {
+                status: 404,
+                message: 'False, something went wrong or user not found'
+            }
           end
         end
 

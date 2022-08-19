@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       # Creates a new user
       post 'signup', to: 'users/registrations#create'
       post 'verify', to: 'users/registrations#verify'
+      post 'login', to: 'users/sessions#login'
+      delete 'logout', to: 'users/sessions#logout'
     end
   end
 end
