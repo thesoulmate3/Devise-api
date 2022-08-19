@@ -1,0 +1,18 @@
+defaults: &defaults
+  adapter:      postgresql
+  encoding:     unicode
+  host:         localhost
+  pool:         5
+  min_messages: warning
+  query_trace:  false
+  username: postgres
+  password: root
+  port: 5432
+
+development:
+  <<: *defaults
+  database: devise_api_development
+
+test:
+  <<: *defaults
+  database: devise_api_test
